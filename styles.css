@@ -1,44 +1,60 @@
+/* Global reset: normalize spacing and box model behavior */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Page canvas: center pricing cards in viewport */
 body {
+    /* Primary UI typeface with safe fallbacks */
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Warm neutral background for soft contrast */
     background-color: #f7f7f4;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Full-height layout to vertically center content */
     min-height: 100vh;
+    /* Breathing room on small screens */
     padding: 20px;
 }
 
+/* Horizontal card group */
 .cards-container {
     display: flex;
     flex-direction: row;
+    /* Space between cards */
     gap: 24px;
+    /* Keep two-card row fixed for this design */
     flex-wrap: nowrap;
     justify-content: center;
+    /* Align card tops so headers line up */
     align-items: flex-start;
 }
 
+/* Single pricing card shell */
 .card {
     display: flex;
     flex-direction: column;
+    /* Keeps card heights visually consistent */
     min-height: 380px;
     background-color: #f2f1ed;
     border-radius: 4px;
+    /* Internal card spacing */
     padding: 16px;
     width: 320px;
+    /* Prevent shrinking in a horizontal flex row */
     flex-shrink: 0;
 }
 
+/* Wrapper for top card content before button */
 .card-top {
     display: flex;
     flex-direction: column;
 }
 
+/* Plan title styling */
 .card-title {
     font-size: 22px;
     line-height: 28px;
@@ -47,39 +63,49 @@ body {
     margin-bottom: 8px;
 }
 
+/* Price row: amount + optional period */
 .card-price {
     font-size: 20px;
+    /* Reduced emphasis vs body text */
     color: rgba(38, 37, 30, 0.5);
     display: inline-flex;
+    /* Makes /mo. sit cleanly on baseline */
     align-items: baseline;
 }
 
+/* Main numeric/word price value */
 .card-price-amount {
     font-size: 22px;
     font-weight: 400;
     color: rgba(38, 37, 30, 0.5);
 }
 
+/* Billing period text (e.g., /mo.) */
 .card-price-period {
     font-size: 14px;
     color: rgba(38, 37, 30, 0.5);
 }
 
+/* Feature block area under the price */
 .card-content {
+    /* Adds separation from bottom CTA button */
     margin-bottom: 32px;
 }
 
+/* Intro text above each features list */
 .includes-text {
     font-size: 16px;
     color: rgba(38, 37, 30, 0.5);
     margin: 16px 0px;
 }
 
+/* Remove default bullets and spacing */
 .features-list {
     list-style: none;
     padding: 0;
 }
 
+/* Each feature row with icon + text */
 .features-list li {
     display: flex;
     align-items: center;
@@ -88,6 +114,7 @@ body {
     color: #26251e;
 }
 
+/* Check icon before each feature */
 .checkmark {
     color: #26251e;
     font-size: 14px;
@@ -95,54 +122,68 @@ body {
     font-weight: 400;
 }
 
+/* Base button style used by both CTAs */
 .download-button {
+    /* Pushes button to bottom for equal CTA alignment */
     margin-top: auto;
+    /* Shrink-wrap button to text + padding */
     width: fit-content;
     background-color: #e6e5e0;
     border: none;
+    /* Pill shape */
     border-radius: 999px;
     padding: 14px 24px;
     font-size: 16px;
     font-weight: 500;
     color: #333;
     cursor: pointer;
+    /* Smooth hover/active transition */
     transition: background-color 0.2s ease;
 }
 
+/* Secondary button hover state */
 .download-button:hover {
     background-color: #D8D6CE;
 }
 
+/* Secondary button pressed state */
 .download-button:active {
     background-color: #D8D6CE;
 }
 
+/* Primary (Pro) button default state */
 .download-button.primary {
     background-color: #111;
     color: #fff;
 }
 
+/* Primary button hover state */
 .download-button.primary:hover {
     background-color: #333;
 }
 
+/* Primary button pressed state */
 .download-button.primary:active {
     background-color: #333;
 }
 
+/* Fixed context label at top center of page */
 .page-label {
     position: fixed;
     top: 16px;
     left: 50%;
+    /* Keeps label perfectly centered */
     transform: translateX(-50%);
     font-size: 14px;
     color: #666;
     background: #fff;
     padding: 8px 16px;
     border-radius: 8px;
+    /* Subtle elevation above content */
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
+/* Slightly stronger emphasis for label keyword */
 .page-label strong {
     color: #333;
 }
